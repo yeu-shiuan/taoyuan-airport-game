@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("infoForm");
+    const submitBtn = document.querySelector(".submit-btn");
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -33,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!valid) return;
 
-        // 🚀 傳送到 Google Apps Script
+        /* 🚀 在送出前更動按鈕狀態 */
+        submitBtn.disabled = true;
+        submitBtn.textContent = "送出中…";
+        submitBtn.style.opacity = "0.6";
+
         fetch("https://script.google.com/macros/s/AKfycbxMU-NTwfBqd9fGL3w6Sctyjrvsc7H2HL9E4jAXswfhILwDAkqgwLTKHbFlw84BOsnc/exec", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -41,15 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(res => res.text())
         .then(data => {
-            console.log("回傳:", data); 
             alert("資料已成功送出！");
             form.reset();
-             window.location.href = "index.html";
-            
+            window.location.href = "index.html";
         })
         .catch(err => {
             console.error("表單送出錯誤:", err);
             alert("送出失敗，請稍後再試");
+        })
+        .finally(() => {
+            /* 🚀 回復按鈕 */
+            submitBtn.disabled = false;
+            submitBtn.textContent = "送出";
+            submitBtn.style.opacity = "1";
         });
     });
 });
