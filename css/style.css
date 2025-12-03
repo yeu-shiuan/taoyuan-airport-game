@@ -17,7 +17,7 @@ body {
 .main-wrapper {
     position: relative;
     width: calc(100% - 40px);
-    height: 90vh;
+    height: 100vh;
     overflow: hidden;
     border-radius: 150px 0px 0px 0px;
     margin-top: 20px;
@@ -252,11 +252,13 @@ body {
 
 .click-hint {
     position: absolute;
-    bottom: 20px;
+    top: 40px;
+    right: 40px;
     width: 100%;
-    text-align: center;
+    text-align: right;
     font-size: 20px;
     font-weight: 500;
+    z-index: 5;
     color: #0e9dcc;
     pointer-events: none;
     animation: floatHint 2s ease-in-out infinite;
@@ -767,7 +769,6 @@ body {
 @media (max-width: 768px) {
     .main-wrapper {
         width: 100%;
-        height: 94vh;
         border-radius: 60px 0px 0px 0px;
         margin-top: 0px;
         margin-left: 0px;
