@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
         { left: "./img/topic/topic_9-1.svg", right: "./img/topic/topic_9-2.svg", textPC: "./img/topic/topic_text_9.png", textMB: "./img/mb/topic/topic_text_9.svg" },
     ];
 
+    const preloadImages = [];
+    questions.forEach(q => {
+        [q.left, q.right, q.textPC, q.textMB].forEach(src => {
+            const img = new Image();
+            img.src = src;
+            preloadImages.push(img);
+        });
+    });
+
     let currentIndex = 0;
     let score = 0;
 
