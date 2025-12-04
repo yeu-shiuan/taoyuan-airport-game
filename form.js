@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!valid) return;
 
-        /* 🚀 在送出前更動按鈕狀態 */
+        /* 在送出前更動按鈕狀態 */
         submitBtn.disabled = true;
         submitBtn.textContent = "送出中…";
         submitBtn.style.opacity = "0.6";
@@ -45,17 +45,25 @@ document.addEventListener("DOMContentLoaded", () => {
             body: new URLSearchParams({ name, phone, email })
         })
         .then(res => res.text())
+        // .then(data => {
+        //     alert("資料已成功送出！");
+        //     form.reset();
+        //     window.location.href = "index.html";
+        // })
         .then(data => {
-            alert("資料已成功送出！");
-            form.reset();
-            window.location.href = "index.html";
-        })
+    document.getElementById("customAlert").style.display = "flex";
+
+    document.getElementById("alertOK").onclick = () => {
+        document.getElementById("customAlert").style.display = "none";
+        form.reset();
+        window.location.href = "index.html";
+    };
+})
         .catch(err => {
             console.error("表單送出錯誤:", err);
             alert("送出失敗，請稍後再試");
         })
         .finally(() => {
-            /* 🚀 回復按鈕 */
             submitBtn.disabled = false;
             submitBtn.textContent = "送出";
             submitBtn.style.opacity = "1";

@@ -702,6 +702,39 @@ body {
     background: linear-gradient(135deg, #ffa54b, #e96a02);
 }
 
+/* 彈窗 */
+.alert-box {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+.alert-content {
+    background: #fff;
+    min-width: 300px;
+    padding: 40px 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.alert-content button {
+    padding: 8px 20px;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px 0;
+    background: #0072ce;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 
 @media (max-width: 1024px) {
     .main {
