@@ -781,6 +781,29 @@ body {
     }
 }
 
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 6;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lang-switch a {
+    text-decoration: none;
+    color: #333;
+}
+
+.lang-switch:hover {
+    background: rgb(201, 251, 255);
+}
+
 @media (max-width: 1024px) {
     .main {
         max-width: 80%;
@@ -841,7 +864,6 @@ body {
         max-height: 70vh;
     }
 }
-
 
 /* 平板 */
 @media (max-width: 768px) {
@@ -1310,6 +1332,11 @@ body {
         width: 100%;
         text-align: right;
         font-size: 16px;
+    }
+
+    .lang-switch {
+        top: 10px;
+        left: 10px;
     }
 }
 

@@ -16,19 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("email").value.trim();
 
         if (name.length < 2) {
-            document.getElementById("nameError").textContent = "請輸入正確姓名";
+            document.getElementById("nameError").textContent = "請輸入正確姓名 (Please enter a valid name.)";
             valid = false;
         }
 
         const phonePattern = /^09\d{8}$/;
         if (!phonePattern.test(phone)) {
-            document.getElementById("phoneError").textContent = "手機格式需為 09 開頭共 10 碼";
+            document.getElementById("phoneError").textContent = "手機格式需為 09 開頭共 10 碼 (Please enter a valid mobile number (starts with 09 and contains 10 digits).)";
             valid = false;
         }
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
-            document.getElementById("emailError").textContent = "請輸入有效 Email";
+            document.getElementById("emailError").textContent = "請輸入有效 Email (Please enter a valid email address.)";
             valid = false;
         }
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* 在送出前更動按鈕狀態 */
         submitBtn.disabled = true;
-        submitBtn.textContent = "送出中…";
+        submitBtn.textContent = "送出中… / Send...";
         submitBtn.style.opacity = "0.6";
 
         fetch("https://script.google.com/macros/s/AKfycbxMU-NTwfBqd9fGL3w6Sctyjrvsc7H2HL9E4jAXswfhILwDAkqgwLTKHbFlw84BOsnc/exec", {
@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 })
         .catch(err => {
-            console.error("表單送出錯誤:", err);
-            alert("送出失敗，請稍後再試");
+            console.error("表單送出錯誤:(Something went wrong)", err);
+            alert("送出失敗，請稍後再試(Submission failed. Please try again later.)");
         })
         .finally(() => {
             submitBtn.disabled = false;
-            submitBtn.textContent = "送出";
+            submitBtn.textContent = "送出 / Send";
             submitBtn.style.opacity = "1";
         });
     });

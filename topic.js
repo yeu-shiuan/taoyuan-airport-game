@@ -1,24 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     const questions = [
-        { left: "./img/topic/topic_1-1.svg", right: "./img/topic/topic_1-2.svg", textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
-        { left: "./img/topic/topic_2-1.svg", right: "./img/topic/topic_2-2.svg", textPC: "./img/topic/topic_text_2.png", textMB: "./img/mb/topic/topic_text_2.svg" },
-        { left: "./img/topic/topic_3-1.svg", right: "./img/topic/topic_3-2.svg", textPC: "./img/topic/topic_text_3.png", textMB: "./img/mb/topic/topic_text_3.svg" },
-        { left: "./img/topic/topic_4-1.svg", right: "./img/topic/topic_4-2.svg", textPC: "./img/topic/topic_text_4.png", textMB: "./img/mb/topic/topic_text_4.svg" },
-        { left: "./img/topic/topic_5-1.svg", right: "./img/topic/topic_5-2.svg", textPC: "./img/topic/topic_text_5.png", textMB: "./img/mb/topic/topic_text_5.svg" },
-        { left: "./img/topic/topic_6-1.svg", right: "./img/topic/topic_6-2.svg", textPC: "./img/topic/topic_text_6.png", textMB: "./img/mb/topic/topic_text_6.svg" },
-        { left: "./img/topic/topic_7-1.svg", right: "./img/topic/topic_7-2.svg", textPC: "./img/topic/topic_text_7.png", textMB: "./img/mb/topic/topic_text_7.svg" },
-        { left: "./img/topic/topic_8-1.svg", right: "./img/topic/topic_8-2.svg", textPC: "./img/topic/topic_text_8.png", textMB: "./img/mb/topic/topic_text_8.svg" },
-        { left: "./img/topic/topic_9-1.svg", right: "./img/topic/topic_9-2.svg", textPC: "./img/topic/topic_text_9.png", textMB: "./img/mb/topic/topic_text_9.svg" },
+        { imgA: "./img/topic/topic_1-1.svg", imgB: "./img/topic/topic_1-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_2-1.svg", imgB: "./img/topic/topic_2-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_3-1.svg", imgB: "./img/topic/topic_3-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_4-1.svg", imgB: "./img/topic/topic_4-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_5-1.svg", imgB: "./img/topic/topic_5-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_6-1.svg", imgB: "./img/topic/topic_6-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_7-1.svg", imgB: "./img/topic/topic_7-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
+        { imgA: "./img/topic/topic_8-1.svg", imgB: "./img/topic/topic_8-2.svg", scoreA: 2, scoreB: 1, textPC: "./img/topic/topic_text_1.png", textMB: "./img/mb/topic/topic_text_1.svg" },
     ];
-
-    const preloadImages = [];
-    questions.forEach(q => {
-        [q.left, q.right, q.textPC, q.textMB].forEach(src => {
-            const img = new Image();
-            img.src = src;
-            preloadImages.push(img);
-        });
-    });
 
     let currentIndex = 0;
     let score = 0;
@@ -28,32 +18,44 @@ document.addEventListener("DOMContentLoaded", function() {
     const textPC = document.querySelector(".topic-text img");
     const textMB = document.querySelector(".topic-text-img");
 
+    let currentMapping = {}; // 記住本題左右是誰
+
     function updateQuestion() {
         if (currentIndex < questions.length) {
             const q = questions[currentIndex];
-            leftCard.src = q.left;
-            rightCard.src = q.right;
+
+            // 隨機交换
+            const random = Math.random() < 0.5;
+
+            if (random) {
+                currentMapping.left = { img: q.imgA, score: q.scoreA };
+                currentMapping.right = { img: q.imgB, score: q.scoreB };
+            } else {
+                currentMapping.left = { img: q.imgB, score: q.scoreB };
+                currentMapping.right = { img: q.imgA, score: q.scoreA };
+            }
+
+            leftCard.src = currentMapping.left.img;
+            rightCard.src = currentMapping.right.img;
             textPC.src = q.textPC;
             textMB.src = q.textMB;
         }
     }
 
-    // 點擊左卡片 -> 加 2 分
     leftCard.addEventListener("click", function() {
-        score += 2;
+        score += currentMapping.left.score;
         nextQuestion();
     });
 
-    // 點擊右卡片 -> 加 1 分
     rightCard.addEventListener("click", function() {
-        score += 1;
+        score += currentMapping.right.score;
         nextQuestion();
     });
 
     function nextQuestion() {
         currentIndex++;
         if (currentIndex >= questions.length) {
-            if (score >= 14) {
+            if (score >= 12) {
                 window.location.href = "result_J.html";
             } else {
                 window.location.href = "result_P.html";
