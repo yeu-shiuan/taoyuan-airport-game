@@ -11,15 +11,34 @@
     <link rel="preload" as="image" href="./img/introduce/cloud.svg">
     <link rel="preload" as="image" href="./img/result/landmark.svg">
     <link rel="preload" as="image" href="./img/result/woman.svg">
-    <link rel="preload" as="image" href="./img/cover/title.svg">
+    <link rel="preload" as="image" href="./img/result/bg_comp.svg">
     <link rel="preload" as="image" href="./img/result/title_1-2.svg">
-    <link rel="preload" as="image" href="./img/result/title_2-2.svg">
+    <link rel="preload" as="image" href="./img/result/title_P.svg">
+    <link rel="preload" as="image" href="./img/mb/result/title_P.svg">
     <link rel="preload" as="image" href="./img/result/img_2-1-1.png">
     <link rel="preload" as="image" href="./img/result/img_2-2.png">
     <link rel="preload" as="image" href="./img/result/img_2-3.png">
     <link rel="preload" as="image" href="./img/result/img_2-4.png">
-    <link rel="preload" as="image" href="./img/result/img_2-5.png">
     <title>結果-P</title>
+    <style>
+        @media (min-width: 450px) {
+            .result-title-mb2 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .result-title {
+                display: none;
+            }
+
+            .result-title-mb2 {
+                display: block;
+                width: 70%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -32,15 +51,21 @@
         <img src="./img/introduce/cloud.svg" class="definition-cloud">
         <img src="./img/result/woman.svg" alt="" class="result-people-mb">
         <div class="result-title-content">
-            <img src="./img/cover/title.svg" class="result-title">
+            <img src="./img/result/title_P.svg" class="result-title">
+            <img src="./img/mb/result/title_P.svg" class="result-title-mb2">
         </div>
         <div class="result-wrapper">
             <img src="./img/result/woman.svg" alt="" class="result-people">
             <div class="result-content">
-                <img src="./img/result/title_1-2.svg" alt="" class="result-content-title">
+                <div class="result-content-group">
+                    <img src="./img/result/title_1-2.svg" alt="" class="result-content-title">
+                    <img src="./img/result/bg_comp.svg" alt="" class="result-bg-comp">
+                </div>
+
                 <p>你喜歡在旅途中慢慢發現驚喜，讓每次出發都有新的故事。
-                    桃園國際機場的自助行李託運機、特色候機室、
-                    SPA按摩區、新世代e-Gate等設施及空間，
+                    桃園國際機場的
+                    <strong>自助行李託運機、特色候機室、SPA按摩區、新世代e-Gate</strong>
+                    等設施及空間，
                     讓你能依自己的節奏休息、體驗、放鬆。
                     在這裡，旅行不只啟程，而是一路享受。
                 </p>
@@ -54,7 +79,8 @@
                             src="./img/result/img_2-2.png" alt=""></a>
                     <a href="https://www.taoyuan-airport.com/explorethefun/index.html" target="_blank"><img
                             src="./img/result/img_2-3.png" alt=""></a>
-                    <a href="" target="_blank"><img src="./img/result/img_2-4.png" alt=""></a>
+                    <a href="https://youtu.be/hoYQ1ZjHkwo" target="_blank"><img src="./img/result/img_2-4.png"
+                            alt=""></a>
                 </div>
                 <div class="result-images-mb">
                     <div class="result-image-group">
@@ -66,7 +92,7 @@
                     <div class="result-image-group">
                         <a href="https://www.taoyuan-airport.com/explorethefun/index.html" target="_blank"><img
                                 src="./img/result/img_2-3.png" alt=""></a>
-                        <a href="" target="_blank"><img src="./img/result/img_2-4.png"
+                        <a href="https://youtu.be/hoYQ1ZjHkwo" target="_blank"><img src="./img/result/img_2-4.png"
                                 alt=""></a>
                     </div>
                 </div>

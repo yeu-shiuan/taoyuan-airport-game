@@ -1,5 +1,5 @@
 body {
-    font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+    font-family: 'Noto Sans', 'Roboto', sans-serif;
     overflow-x: hidden;
     margin: 0;
 }
@@ -17,7 +17,8 @@ body {
 .main-wrapper {
     position: relative;
     width: calc(100% - 40px);
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     overflow: hidden;
     border-radius: 150px 0px 0px 0px;
     margin-top: 20px;
@@ -178,7 +179,7 @@ body {
     max-width: 220px;
     flex-shrink: 0;
     position: static;
-    border-radius: 30px;
+    border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -421,14 +422,20 @@ body {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    padding: 2% 2% 0 2%;
+    padding-top: 3%;
+    padding-left: 4%;
     z-index: 5;
 }
 
 .result-title {
-    width: 25%;
-    max-width: 550px;
+    width: 32%;
+    max-width: 400px;
     height: auto;
+}
+
+.result-title-mb {
+    width: 35%;
+    max-width: 400px;
 }
 
 .result-wrapper {
@@ -482,14 +489,22 @@ body {
 }
 
 .result-content>* {
-    transform: translateY(-125px);
+    transform: translateY(-100px);
 }
 
 .result-content-title {
     position: relative;
     z-index: 6;
+    width: 50%;
+    padding-left: 8%;
+}
+
+.result-content-title-en {
+    position: relative;
+    z-index: 6;
     width: 80%;
-    margin: 0px auto;
+    padding-top: 5%;
+    padding-left: 0%;
 }
 
 .result-caption {
@@ -758,6 +773,18 @@ body {
     margin-top: 20px;
 }
 
+.result-content-group {
+    display: flex;
+}
+
+.result-bg-comp {
+    width: 50%;
+}
+
+.result-bg-comp2 {
+    width: 40%;
+}
+
 @media screen and (min-width: 1600px) and (max-width: 2080px) {
     .main {
         max-width: 55%;
@@ -776,9 +803,9 @@ body {
         max-width: none;
     }
 
-    .result-content {
+    /* .result-content {
         min-width: 1200px;
-    }
+    } */
 }
 
 .lang-switch {
@@ -802,6 +829,27 @@ body {
 
 .lang-switch:hover {
     background: rgb(201, 251, 255);
+}
+
+.back-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 998;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: rgb(255, 142, 85);
+    padding: 10px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgb(255, 108, 34);
 }
 
 @media (max-width: 1024px) {
@@ -844,7 +892,7 @@ body {
     }
 
     .result-content>* {
-        transform: translateY(-100px);
+        transform: translateY(-0px);
     }
 
     .result-caption {
@@ -1003,7 +1051,7 @@ body {
 
     .result-title {
         width: 30%;
-        min-width: 300px;
+        min-width: 250px;
     }
 
     .result-wrapper {
@@ -1034,7 +1082,19 @@ body {
     }
 
     .result-content-title {
+        width: 60%;
+    }
+
+    .result-content-title-en {
         width: 70%;
+    }
+
+    .result-bg-comp {
+        display: none;
+    }
+
+    .result-bg-comp2 {
+        display: none;
     }
 
     .result-caption {
@@ -1064,6 +1124,11 @@ body {
         justify-content: center;
         z-index: 5;
         right: 0%;
+    }
+
+    .result-content-group {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -1133,8 +1198,10 @@ body {
     }
 
     .airplane {
-        display: none;
+        max-width: 100px;
+        top: 10%;
     }
+
 
     .title-mb {
         width: 70%;
@@ -1149,7 +1216,7 @@ body {
 
     .cover-btn {
         min-width: 100%;
-        border-radius: 80px;
+        border-radius: 21px;
     }
 
     .definition-title1-mb {
@@ -1164,11 +1231,11 @@ body {
     }
 
     .man {
-        width: 80%;
+        width: 70%;
     }
 
     .woman {
-        width: 80%;
+        width: 70%;
     }
 
     .topic-title {
@@ -1189,7 +1256,7 @@ body {
 
     .result-title {
         width: 40%;
-        min-width: 340px;
+        min-width: 300px;
     }
 
     .result-people-mb {
@@ -1206,6 +1273,10 @@ body {
     }
 
     .result-content-title {
+        width: 80%;
+    }
+
+    .result-content-title-en {
         width: 80%;
     }
 
@@ -1226,7 +1297,7 @@ body {
     }
 
     .result-images-mb {
-        width: 70%;
+        width: 80%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1239,7 +1310,7 @@ body {
     }
 
     .result-image-group img {
-        width: 70%;
+        width: 100%;
         display: inline-block;
     }
 
@@ -1339,6 +1410,11 @@ body {
         top: 10px;
         left: 10px;
     }
+
+
+    .result-title-mb {
+        width: 70%;
+    }
 }
 
 @media (max-width: 375px) {
@@ -1419,7 +1495,7 @@ body {
     }
 
     .result-images-mb {
-        width: 70%;
+        width: 80%;
         gap: 0px;
     }
 
