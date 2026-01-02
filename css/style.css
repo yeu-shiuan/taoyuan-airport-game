@@ -790,6 +790,51 @@ body {
     width: 40%;
 }
 
+.prize-section {
+    background-color: #fff;
+    padding: 4px 16px;
+    border-radius: 10px;
+}
+
+.prize-desc {
+    font-weight: bold;
+}
+
+.winner-list.numbered {
+    counter-reset: winner;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px 24px;
+}
+
+.winner-list.numbered li {
+    counter-increment: winner;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 0.2;
+    color: #333;
+}
+
+.winner-list.numbered li::before {
+    content: counter(winner);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0e9dcc;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
 @media screen and (min-width: 1600px) and (max-width: 2080px) {
     .main {
         max-width: 55%;
@@ -1191,6 +1236,10 @@ body {
     .topic-cards img {
         max-width: 30%;
         min-width: 250px;
+    }
+
+    .winner-list.numbered {
+        grid-template-columns: 1fr;
     }
 }
 
