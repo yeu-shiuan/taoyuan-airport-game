@@ -1263,7 +1263,7 @@ body {
     }
 
     .btn-group {
-        bottom: 10%;
+        bottom: 20%;
         gap: 16px;
         width: 60%;
     }
@@ -1483,7 +1483,7 @@ body {
     }
 
     .btn-group {
-        bottom: 10%;
+        bottom: 20%;
         gap: 10px;
         width: 40%;
     }
