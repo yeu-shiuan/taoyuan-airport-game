@@ -1,5 +1,5 @@
 body {
-    font-family: 'Noto Sans', 'Roboto', sans-serif;
+    font-family: 'Noto Sans TC', 'Roboto', sans-serif;
     overflow-x: hidden;
     margin: 0;
 }
@@ -1263,7 +1263,7 @@ body {
     }
 
     .btn-group {
-        bottom: 5%;
+        bottom: 10%;
         gap: 16px;
         width: 60%;
     }
@@ -1483,7 +1483,7 @@ body {
     }
 
     .btn-group {
-        bottom: 2%;
+        bottom: 10%;
         gap: 10px;
         width: 40%;
     }
